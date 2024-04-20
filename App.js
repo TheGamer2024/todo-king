@@ -5,12 +5,14 @@ import {
   ScrollView,
   View,
   SafeAreaView,
+  StatusBar,
   Image,
   Button,
   TextInput,
 } from "react-native";
 
-import Todos from "./components/todos";
+// import Todos from "./components/todos";
+import Add from "./components/add";
 
 export default function App() {
   return (
@@ -29,15 +31,7 @@ export default function App() {
       <ScrollView style={styles.todos}>
         <Text>Todos</Text>
       </ScrollView>
-      <View style={styles.add}>
-        <TextInput placeholder="Todo" style={styles.add.input}></TextInput>
-        <Button
-          title="Add"
-          color="#f75605"
-          accessibilityLabel="Add"
-          style={styles.add.button}
-        ></Button>
-      </View>
+      <Add />
     </SafeAreaView>
   );
 }
@@ -45,11 +39,10 @@ export default function App() {
 const styles = StyleSheet.create({
   main: {
     display: "flex",
-    backgroundColor: "purple",
     flexDirection: "column",
     justifyContent: "space-between",
     flex: 1,
-    paddingTop: 20,
+    paddingTop: StatusBar.currentHeight + 5,
   },
 
   header: {
@@ -64,24 +57,6 @@ const styles = StyleSheet.create({
   headline: {
     color: "white",
     fontSize: 30,
-  },
-
-  add: {
-    input: {
-      backgroundColor: "#e2e2e2",
-      padding: 7.5,
-      borderRadius: 20,
-    },
-    button: {
-      borderRadius: 20,
-    },
-    backgroundColor: "purple",
-    padding: 15,
-    display: "flex",
-    // alignItems: "center",
-    justifyContent: "center",
-    gap: 15,
-    // flexDirection: "row",
   },
 
   todos: {
